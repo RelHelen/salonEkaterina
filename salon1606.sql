@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 30 2022 г., 11:20
+-- Время создания: Июн 30 2022 г., 15:16
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.2
 
@@ -31,24 +31,23 @@ SET time_zone = "+00:00";
 CREATE TABLE `customers` (
   `ID` int(11) NOT NULL,
   `ID_U` int(11) NOT NULL,
-  `FIO` varchar(200) NOT NULL,
-  `PHONE` varchar(100) NOT NULL,
-  `mail` varchar(200) NOT NULL
+  `FIO` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `customers`
 --
 
-INSERT INTO `customers` (`ID`, `ID_U`, `FIO`, `PHONE`, `mail`) VALUES
-(1, 2, 'Светлова Настя', '8-958-744-64-22', 'svetlova@hgmail.com'),
-(2, 3, 'Брокво Вика', '8-928-747-25-52\r\n', 'brobko20@gmail.com'),
-(3, 4, 'Зайкина Екатерина', '8-927-453-45-61', 'zikina777@gmail.com'),
-(4, 5, 'Александра Земина', '8-938-121-91-31', 'zemalex@mail.com'),
-(5, 6, 'Федечкина Валерия', '8-928-747-14-12', 'fedechval@gmail.com'),
-(6, 6, 'фролова Настя', '8-960-145-14-51', 'asdf@wwer'),
-(7, 7, 'Вероника', '8-928-141-25-42', 'dref@mail.com'),
-(8, 8, 'Марченко Аля', 'Марченко Иля', '');
+INSERT INTO `customers` (`ID`, `ID_U`, `FIO`) VALUES
+(1, 2, 'Светлова Настя'),
+(2, 3, 'Брокво Вика'),
+(3, 4, 'Зайкина Екатерина'),
+(4, 5, 'Александра Земина'),
+(5, 6, 'Федечкина Валерия'),
+(6, 6, 'фролова Настя'),
+(7, 7, 'Вероника'),
+(8, 8, 'Марченко Аля'),
+(10, 9, 'Федорова Оксана');
 
 -- --------------------------------------------------------
 
@@ -282,7 +281,8 @@ INSERT INTO `users` (`ID`, `login`, `password`, `MAIL`, `PHONE`, `role`, `data_r
 (5, 'user4', ' 1111111', 'ddfgsdfgsg@errr.rr', '4256245', 'user', '0000-00-00'),
 (6, 'user5', '111111', 'fgjfg@sfd.ru', '454573', 'user', '0000-00-00'),
 (7, 'serman', '$2y$10$Gzz2oCpqKV1nQKLC00cTV.GJGgUyWhZ636vswK8JSZ80349AlMejG', 'wetert@sdfasd', '5413451', 'user', '2022-06-01'),
-(8, 'user7', '111111', 'fsdgsdf@ddd', '2341234', 'user', '0000-00-00');
+(8, 'user7', '111111', 'fsdgsdf@ddd', '2341234', 'user', '0000-00-00'),
+(9, 'user9', '$2y$10$Bib0CnYdfS63Z1WStW.zg.LGHMP6FS68QPNrc.Pa5wga1.owHXYdC', 'user9@user9.com', '2341234234', '', '2022-06-30');
 
 -- --------------------------------------------------------
 
@@ -517,7 +517,7 @@ ALTER TABLE `works`
 -- AUTO_INCREMENT для таблицы `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `detali_o`
@@ -565,7 +565,7 @@ ALTER TABLE `persons`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `uslugi`
