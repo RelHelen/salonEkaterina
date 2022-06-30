@@ -15,6 +15,7 @@ class User extends Model
         'password' => '',
         'mail' => '',
         'phone' => '',
+        'fio' => '',
         'role' => '',
         'data_reg' => ''
 
@@ -24,6 +25,7 @@ class User extends Model
         'required' => [
             ['login'],
             ['password'],
+            ['phone'],
         ],
         'email' => [
             ['mail'],
@@ -60,24 +62,36 @@ class User extends Model
         $params = [
             'login' => $this->attributes['login'],
             'mail' => $this->attributes['mail'],
+            'phone' => $this->attributes['phone'],
         ];
-        $user = $this->findBySql('SELECT * FROM users WHERE login =:login OR mail = :mail LIMIT 1', $params);
-        // debug($user);
-        // die;
-
-        if ($user) {
-            if ($user->login == $this->attributes['login']) {
-                $this->errors['unique'][] = 'Этот логин уже занят';
+        $users = $this->findBySql('SELECT * FROM users WHERE login =:login OR MAIL = :mail OR PHONE = :phone ', $params);
+        // debug($users);
+        if ($users) {
+            foreach ($users as  $user) {
+                // проверка на совпадение логина
+                if ($user['login'] == $this->attributes['login']) {
+                    // debug($user['login']);
+                    $this->errors['unique'][] = 'Этот логин уже занят';
+                    return false;
+                }
+                // проверка на совпадение почты
+                elseif ($user['MAIL'] == $this->attributes['mail']) {
+                    //  debug($user['MAIL']);
+                    $this->errors['unique'][] = 'Эта почта уже используется';
+                    return false;
+                }
+                // проверка на совпадение телефона
+                elseif ($user['PHONE'] == $this->attributes['phone']) {
+                    // debug($user['PHONE']);
+                    $this->errors['unique'][] = 'Этот телефон уже используется';
+                    return false;
+                }
             }
-            if ($user->mail == $this->attributes['mail']) {
-                $this->errors['unique'][] = 'Эта почта уже используется';
-            }
-            return false;
         }
         return true;
     }
     /**
-     * Вставка строки в таблицу
+     * Вставка строки в таблицу user 
      * @return
      */
     public function insertSingleRow($table)
@@ -115,10 +129,42 @@ class User extends Model
         // }
         // die;
         $res = $this->pdo->execute($sql, $params);
+
+        $id_u = $this->pdo->lastInsertId(); //номер последнего индекса
+
+
+        if ($this->insertSingleRowCust('customers', $id_u) > 0) {
+            return $res;
+        }
+    }
+    /**
+     * Вставка строки в таблицу customer
+     * @return
+     */
+    public function insertSingleRowCust($table, $id_u)
+    {
+
+        $sql = "INSERT INTO $table (ID_U,FIO)
+            VALUES (
+                 :id_u,
+                 :fio 
+            )";
+
+        $params = [
+            'id_u' => $id_u,
+            'fio' => $this->attributes['fio']
+        ];
+
+        // debug($this->attributes['users_data_reg']);
+        // foreach ($params as $value) {
+        //     echo gettype($value), "\n";
+        // }
+        // die;
+        $res = $this->pdo->execute($sql, $params);
+
         $this->pdo->lastInsertId(); //номер последнего индекса
         return $res;
     }
-
 
     /**
      * логин

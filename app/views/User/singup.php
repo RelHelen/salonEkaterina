@@ -10,7 +10,8 @@
                         <h4>Форма регистрации</h4>
                         <form class="form" id="check" method="POST" action="<?= PATH ?>/user/singup">
                             <div class=" mb-4">
-                                <input type="text" id="login" name="login" class="form-control form-control-lg" placeholder="Введите ваше имя" value="<?= isset($_SESSION['form_data']['fio']) ? hsc($_SESSION['form_data']['fio']) : ''; ?>" />
+
+                                <input type="text" id="fio" name="fio" class="form-control form-control-lg" placeholder="Введите ваше имя" value="<?= isset($_SESSION['form_data']['fio']) ? hsc($_SESSION['form_data']['fio']) : ''; ?>" />
 
                             </div>
 
@@ -25,7 +26,7 @@
 
                             </div>
                             <div class="mb-4">
-                                <input type="phone" id="phone" name="mail" class="form-control form-control-lg" placeholder="Введите телефон" value="<?= isset($_SESSION['form_data']['phone']) ? hsc($_SESSION['form_data']['phone']) : ''; ?>" />
+                                <input type="phone" id="phone" name="phone" class="form-control form-control-lg" placeholder="Введите телефон" value="<?= isset($_SESSION['form_data']['phone']) ? hsc($_SESSION['form_data']['phone']) : ''; ?>" />
 
                             </div>
 
@@ -47,7 +48,7 @@
                         </form>
                         <!-- данные сессии показываем только один раз  -->
                         <?php
-                        // if (isset($_SESSION['form_data'])) unset($_SESSION['form_data']);
+                        if (isset($_SESSION['form_data'])) unset($_SESSION['form_data']);
                         ?>
                     </div>
                 </div>

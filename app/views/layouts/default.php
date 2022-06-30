@@ -167,6 +167,19 @@
     <!-- Header Area End -->
     <!-- Welcome Area Start -->
     <main>
+        <?php if (isset($_SESSION['error'])) : ?>
+            <div class="alert alert-danger alert-close">
+                <?= $_SESSION['error'];
+                unset($_SESSION['error']); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success alert-close">
+                <?= $_SESSION['success'];
+                unset($_SESSION['success']); ?>
+            </div>
+        <?php endif; ?>
         <?= $content; ?>
     </main>
     <!-- Welcome Area End -->

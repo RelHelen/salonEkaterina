@@ -25,10 +25,11 @@ class UserController extends AppController
     {
         // $this->setMeta('Регистрация');
         $this->setTitle('');
+        //unset($_SESSION);
+        // debug($_SESSION);
+
         if (!empty($_POST)) {
-            // debug($_POST);
-
-
+            //  debug($_POST);
             //создаем объект модели
             $user = new User();
             $data = $_POST;
@@ -36,7 +37,8 @@ class UserController extends AppController
             // die;
             $user->loadAtr($data, $table); //для формирования [] атрибуттов из полей формы
 
-
+            // debug($user);
+            // debug($_POST);
             //не валидны
             if (!$user->validate($data) || !$user->checkUnique()) {
                 //получили ошибки
@@ -51,17 +53,18 @@ class UserController extends AppController
                 $user->attributes['password'],
                 PASSWORD_DEFAULT
             );
-
+            //если данные валидны вставляем строку в таблицу
             if ($user->insertSingleRow('users') > 0) {
                 $_SESSION['success'] = "Вы успешно зарегестрировались";
             } else {
                 $_SESSION['error'] = "Ошибка! Попробуйте позже";
-                // unset($_SESSION['error']);
             }
+
             redirect();
-            //debug($user);
-            //debug($_POST); 
-            //die; 
+
+
+            // debug($user);
+
         }
     }
 
@@ -99,7 +102,7 @@ class UserController extends AppController
         $this->destSession();
         redirect(PATH . '/user/login');
     }
-    //просмотр заказов
+    //просмотр заказов по
     public function BookingAction()
     {
 
@@ -117,7 +120,7 @@ class UserController extends AppController
         $this->setTitle('Ваши заказы');
         $this->setData(compact('contracts', 'detals', 'customer'));
     }
-    //просмотр заказов
+    //просмотр заказов по 
     public function PersonalAction()
     {
 
