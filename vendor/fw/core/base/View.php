@@ -52,7 +52,7 @@ class View
      */
     public $scripts = [];
 
-    public function __construct($route, $layout = '', $view = '', $meta, $title)
+    public function __construct($route='', $layout = '', $view = '', $meta='', $title='',$titleAdmin='')
     {
 
         $this->route = $route;
@@ -62,7 +62,8 @@ class View
         $this->prefix = $route['prefix'];
         $this->meta = $meta;
         $this->title = $title;
-
+        $this->titleAdmin=$titleAdmin;
+        
         if ($layout === false) {
             $this->layout = false; //если явно не надо подключать шаблоны
         } else {

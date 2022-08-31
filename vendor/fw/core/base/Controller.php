@@ -66,7 +66,7 @@ abstract class Controller
   public function getView()
   {
     //объект вида
-    $vObj = new View($this->route, $this->layout, $this->view, $this->meta, $this->title);
+    $vObj = new View($this->route, $this->layout, $this->view, $this->meta, $this->title, $this->titleAdmin);
     $vObj->render($this->vars);
   }
 
@@ -92,6 +92,14 @@ abstract class Controller
   public function setTitle($title)
   {
     return $this->title = $title;
+  }
+
+  /**
+   * метод установки Заголоквка на странице в админке
+   */
+  public function setAdminTitle($titleAdmin)
+  {
+    return $this->titleAdmin = $titleAdmin;
   }
 
   /**

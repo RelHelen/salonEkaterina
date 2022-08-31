@@ -168,20 +168,17 @@ class User extends Model
 
     /**
      * логин
-     * @param bool $isAdmin
-     
+     * @param bool $isAdmin     
      * проверка  логина с бд при авторизации
      */
     public  function isLogin($isAdmin = false)
     {
         // debug($_POST);
-
         $login = !empty(trim($_POST['login']))
-            ? filter_var(trim($_POST['login']), FILTER_SANITIZE_STRING)
+            ? filter_var(trim($_POST['login']), FILTER_UNSAFE_RAW)
             : null;
-
         $pass = !empty(trim($_POST['password']))
-            ? filter_var(trim($_POST['password']), FILTER_SANITIZE_STRING)
+            ? filter_var(trim($_POST['password']), FILTER_UNSAFE_RAW)
             : null;
 
         if ($login && $pass) {

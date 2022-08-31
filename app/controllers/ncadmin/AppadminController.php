@@ -32,6 +32,7 @@ class AppadminController extends Controller
       'Салон Екатерина'
     );
     $this->setTitle('Панель администратора');
+    $this->setAdminTitle("");
 
   }
 

@@ -3,7 +3,7 @@
          <ol class="breadcrumb ">
              <li class="breadcrumb-item"><a href="<?= ADMIN; ?>"><i class="fa fa-dashboard"></i> Главная</a>
              </li>
-             <li class="breadcrumb-item" class="active">Список заказов</li>
+             <li class="breadcrumb-item" class="active"><?php echo $this->titleAdmin; ?></li>
          </ol>
      </div>
  </section>
@@ -17,7 +17,7 @@
          <?php include_once('filter.php'); ?>
          <!-- /filter -->
          <div class="card-header">
-             <h3 class="card-title">Список заказов</h3>
+             <h3 class="card-title"><?php echo $this->titleAdmin; ?></h3>
          </div>
 
      </div>

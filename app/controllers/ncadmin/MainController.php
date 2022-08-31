@@ -21,13 +21,17 @@ class MainController extends AppadminController
 	{
 		//$this->model = new AppModel;
 		$this->setTitle("Заказы");
+		
 		parent::__construct($route);
 	}
 	public function indexAction()
 	{
 
 		$model = new Booking;
+		// название страницы
 		$this->setTitle("Заказы");
+		// название метода на странице
+		$this->setAdminTitle("Список заказов");
 		$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 		$perpage = 10;
 		$count = $model->count('order_u');
@@ -37,7 +41,7 @@ class MainController extends AppadminController
 
 		//все заказы
 		$contracts = $model->getContracts($start, $perpage);
-		//debug($contracts);
+		 debug($contracts);
 
 		$this->setData(compact('contracts', 'count', 'pagination'));
 

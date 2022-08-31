@@ -140,7 +140,7 @@ abstract class Model
      * login='admin'
      *  возвращает  данные запроса
      * */
-    public function findOne($fild = '', $val)
+    public function findOne($fild = '', $val='')
     {
         $fild = $fild ?: $this->pk; //если поле выборки задано, то ищем по нему, если нет, то ищем по ключю $pk=id 
 

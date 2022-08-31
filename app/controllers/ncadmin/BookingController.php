@@ -38,7 +38,7 @@ class BookingController extends AppadminController
 		//все заказы
 		$contracts = $model->getContracts($start, $perpage);
 
-		$this->setTitle('Список договоров');
+		// $this->setTitle('Список договоров');
 		$this->setData(compact('count', 'contracts', 'pagination'));
 	}
 
@@ -53,7 +53,7 @@ class BookingController extends AppadminController
 		$contract = $model->getContractSql($contract_id);
 		$_SESSION['contract'] = $contract;
 		$model->contract = $contract;
-		//debug($contract_id);
+		// debug($contract_id);
 		//debug($contract);
 		if (!$contract) {
 			throw new \Exception('Страница не найдена', 404);
@@ -61,7 +61,7 @@ class BookingController extends AppadminController
 			$lists = $model->getDetal($contract_id);
 			$model->uslugi = $lists;
 		}
-		//debug($lists);
+		// debug($lists);
 		$_SESSION['uslugi'] = $lists;
 		$modelPerson = new Customers;
 		//$persons = $modelPerson->getPersonName();
@@ -82,7 +82,7 @@ class BookingController extends AppadminController
 				}
 			}
 		}
-		//debug($grup);
+		// debug($grup);
 
 		foreach ($grup  as $kay => $value) {
 			foreach ($value as $kays => $values) {
@@ -124,4 +124,61 @@ class BookingController extends AppadminController
 		$this->setTitle('Выбор мастера');
 		$this->setData(compact('contract', 'lists', 'pergroup'));
 	}
+
+	//изменение заказов
+	public function changeAction()
+	{
+		$contract_id = $this->getRequestID();
+		$model = new Booking;
+		$contract = [];
+		$devices = [];
+		//$contract = $model->getRowContracts($contract_id);
+		$contract = $model->getContractSql($contract_id);
+		$_SESSION['contract'] = $contract;
+		$model->contract = $contract;
+		// debug($contract_id);
+		//debug($contract);
+		if (!$contract) {
+			throw new \Exception('Страница не найдена', 404);
+		} else {
+			$lists = $model->getDetal($contract_id);
+			$model->uslugi = $lists;
+		}
+		 // debug($lists);
+		$_SESSION['uslugi'] = $lists;
+		$modelPerson = new Customers;
+		//$persons = $modelPerson->getPersonName();
+
+		$gr = [];
+		$grup = [];
+		foreach ($lists  as $kay => $value) {
+			//debug($value['ID_U']);
+			array_push($gr, $model->getSerByNum($value['ID_U']));
+			//$gr = $model->getSerByNum($value['ID_U']);
+		}
+		$grup = $gr;
+		for ($i = 0; $i < count($grup); $i++) {
+			for ($j = $i + 1; $j < count($grup) - 1; $j++) {
+				//debug($grup[$i][0]['ID_GR']);
+				if ($grup[$i][0]['ID_GR'] == $grup[$j][0]['ID_GR']) {
+					unset($grup[$j]);
+				}
+			}
+		}
+		// debug($grup);
+
+		foreach ($grup  as $kay => $value) {
+			foreach ($value as $kays => $values) {
+				//debug($values['ID_GR']);
+				$pergroup = $modelPerson->getPersonNameId($values['ID_GR']);
+				//$grName[] = $value1;
+			}
+		}
+		$_SESSION['group'] = $pergroup;
+
+		//debug($pergroup);
+		$this->setTitle('Просмотр заказов');
+		$this->setData(compact('contract', 'lists', 'pergroup'));
+	}
+
 }

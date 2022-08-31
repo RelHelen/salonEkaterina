@@ -8936,3 +8936,147 @@
  ====****=====================
 [2022-06-30 14:29:17] Ошибка: Undefined index: login || Файл: C:\xampp\htdocs\salon1606\app\models\User.php || Строка: 71 
  ====****=====================
+[2022-08-17 12:22:48] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 12:22:52] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 12:22:53] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 12:22:53] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 12:22:54] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 12:22:54] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 14:44:55] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 14:53:12] Ошибка: Optional parameter $fild declared before required parameter $val is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Model.php || Строка: 143 
+ ====****=====================
+[2022-08-17 14:54:03] Ошибка: Optional parameter $layout declared before required parameter $title is implicitly treated as a required parameter || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\View.php || Строка: 55 
+ ====****=====================
+[2022-08-17 14:55:53] Ошибка: Контроллер app\controllers\PersonController не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 137 
+ ====****=====================
+[2022-08-17 14:56:11] Ошибка: Контроллер app\controllers\PersonController не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 137 
+ ====****=====================
+[2022-08-17 14:58:36] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-17 14:58:46] Ошибка: Метод app\controllers\BronorderController::servAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-17 14:58:52] Ошибка: Метод app\controllers\BronorderController::priceAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:16:33] Ошибка: Контроллер app\controllers\AdminController не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 137 
+ ====****=====================
+[2022-08-31 11:17:51] Ошибка: Constant FILTER_SANITIZE_STRING is deprecated || Файл: C:\xampp\htdocs\salon1606\app\models\User.php || Строка: 180 
+ ====****=====================
+[2022-08-31 11:20:34] Ошибка: Constant FILTER_SANITIZE_STRING is deprecated || Файл: C:\xampp\htdocs\salon1606\app\models\User.php || Строка: 180 
+ ====****=====================
+[2022-08-31 11:21:31] Ошибка: Constant FILTER_SANITIZE_STRING is deprecated || Файл: C:\xampp\htdocs\salon1606\app\models\User.php || Строка: 178 
+ ====****=====================
+[2022-08-31 11:25:33] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:25:46] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:25:52] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:26:07] Ошибка: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customers.PHONE' in 'field list' || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Db.php || Строка: 102 
+ ====****=====================
+[2022-08-31 11:26:07] Ошибка: Uncaught TypeError: http_response_code(): Argument #1 ($response_code) must be of type int, string given in C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php:109
+Stack trace:
+#0 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(109): http_response_code('42S22')
+#1 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(94): fw\core\ErrorHandler->displayError('\xD0\x98\xD1\x81\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB5\xD0...', 'SQLSTATE[42S22]...', 'C:\\xampp\\htdocs...', 102, '42S22')
+#2 [internal function]: fw\core\ErrorHandler->exceptionHandler(Object(PDOException))
+#3 {main}
+  thrown || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php || Строка: 109 
+ ====****=====================
+[2022-08-31 11:26:41] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:26:52] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:26:56] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:27:04] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:27:08] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-08-31 11:27:24] Ошибка: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customers.PHONE' in 'field list' || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Db.php || Строка: 100 
+ ====****=====================
+[2022-08-31 11:27:24] Ошибка: Uncaught TypeError: http_response_code(): Argument #1 ($response_code) must be of type int, string given in C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php:109
+Stack trace:
+#0 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(109): http_response_code('42S22')
+#1 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(94): fw\core\ErrorHandler->displayError('\xD0\x98\xD1\x81\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB5\xD0...', 'SQLSTATE[42S22]...', 'C:\\xampp\\htdocs...', 100, '42S22')
+#2 [internal function]: fw\core\ErrorHandler->exceptionHandler(Object(PDOException))
+#3 {main}
+  thrown || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php || Строка: 109 
+ ====****=====================
+[2022-08-31 11:27:28] Ошибка: Метод app\controllers\ncadmin\CustomerController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:27:34] Ошибка: Метод app\controllers\ncadmin\VidservController::viewAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:27:48] Ошибка: Метод app\controllers\ncadmin\BookingController::changedevAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:28:00] Ошибка: Метод app\controllers\ncadmin\BookingController::deletedevAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:28:07] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:28:21] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:28:27] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:28:32] Ошибка: Метод app\controllers\ncadmin\BookingController::deleteAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:28:36] Ошибка: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customers.PHONE' in 'field list' || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Db.php || Строка: 102 
+ ====****=====================
+[2022-08-31 11:28:36] Ошибка: Uncaught TypeError: http_response_code(): Argument #1 ($response_code) must be of type int, string given in C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php:109
+Stack trace:
+#0 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(109): http_response_code('42S22')
+#1 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(94): fw\core\ErrorHandler->displayError('\xD0\x98\xD1\x81\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB5\xD0...', 'SQLSTATE[42S22]...', 'C:\\xampp\\htdocs...', 102, '42S22')
+#2 [internal function]: fw\core\ErrorHandler->exceptionHandler(Object(PDOException))
+#3 {main}
+  thrown || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php || Строка: 109 
+ ====****=====================
+[2022-08-31 11:28:53] Ошибка: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customers.PHONE' in 'field list' || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Db.php || Строка: 100 
+ ====****=====================
+[2022-08-31 11:28:53] Ошибка: Uncaught TypeError: http_response_code(): Argument #1 ($response_code) must be of type int, string given in C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php:109
+Stack trace:
+#0 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(109): http_response_code('42S22')
+#1 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(94): fw\core\ErrorHandler->displayError('\xD0\x98\xD1\x81\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB5\xD0...', 'SQLSTATE[42S22]...', 'C:\\xampp\\htdocs...', 100, '42S22')
+#2 [internal function]: fw\core\ErrorHandler->exceptionHandler(Object(PDOException))
+#3 {main}
+  thrown || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php || Строка: 109 
+ ====****=====================
+[2022-08-31 11:29:06] Ошибка: Метод app\controllers\ncadmin\CustomerController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:39:56] Ошибка: Undefined variable $setAdminTitle || Файл: C:\xampp\htdocs\salon1606\app\views\ncadmin\Main\index.php || Строка: 6 
+ ====****=====================
+[2022-08-31 11:40:34] Ошибка: Call to undefined method fw\core\base\View::setAdminTitle() || Файл: C:\xampp\htdocs\salon1606\app\views\ncadmin\Main\index.php || Строка: 6 
+ ====****=====================
+[2022-08-31 11:42:10] Ошибка: Undefined property: fw\core\base\View::$setAdminTitle || Файл: C:\xampp\htdocs\salon1606\app\views\ncadmin\Main\index.php || Строка: 6 
+ ====****=====================
+[2022-08-31 11:43:26] Ошибка: Undefined property: fw\core\base\View::$titleAdmin || Файл: C:\xampp\htdocs\salon1606\app\views\ncadmin\Main\index.php || Строка: 6 
+ ====****=====================
+[2022-08-31 11:46:45] Ошибка: Undefined property: app\controllers\ncadmin\BookingController::$titleAdmin || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\base\Controller.php || Строка: 69 
+ ====****=====================
+[2022-08-31 11:51:05] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:51:10] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:53:36] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:54:35] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:54:37] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 11:55:19] Ошибка: Метод app\controllers\ncadmin\BookingController::changedevAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 12:06:55] Ошибка: Метод app\controllers\ncadmin\BookingController::changeAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-08-31 12:40:01] Ошибка: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'customers.PHONE' in 'field list' || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Db.php || Строка: 102 
+ ====****=====================
+[2022-08-31 12:40:01] Ошибка: Uncaught TypeError: http_response_code(): Argument #1 ($response_code) must be of type int, string given in C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php:109
+Stack trace:
+#0 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(109): http_response_code('42S22')
+#1 C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php(94): fw\core\ErrorHandler->displayError('\xD0\x98\xD1\x81\xD0\xBA\xD0\xBB\xD1\x8E\xD1\x87\xD0\xB5\xD0...', 'SQLSTATE[42S22]...', 'C:\\xampp\\htdocs...', 102, '42S22')
+#2 [internal function]: fw\core\ErrorHandler->exceptionHandler(Object(PDOException))
+#3 {main}
+  thrown || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\ErrorHandler.php || Строка: 109 
+ ====****=====================

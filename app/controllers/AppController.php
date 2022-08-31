@@ -32,6 +32,7 @@ class AppController extends Controller
     $this->setMeta("Салон красоты Екатерина");
 
     $this->setTitle('Салон красоты Екатерина');
+    $this->setAdminTitle("");
     $this->layout = 'default';
     //подключение к бд и таблице menu
     $model = new AppModel;
