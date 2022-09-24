@@ -193,8 +193,6 @@ Cal.prototype.showTime = function(selMouth, selDate) {
         dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
         let objDateTime = { 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
         // console.log(objDateTime);
-
-
     }
 }
 
@@ -253,6 +251,9 @@ function modalTime(selMouth, selDate) {
                 dataServ2 = JSON.parse(localStorage.getItem('dataServ'));
                 dataServ3.push(data, dataServ2);
                 console.log("dataServ3", dataServ3);
+                localStorage.removeItem('dataServ');
+                localStorage.setItem('dataServ', JSON.stringify(dataServ3));
+                window.location.href = 'bronorder/view';
             };
 
         }
@@ -283,9 +284,8 @@ window.onload = function() {
                 el.classList.remove('selected');
             });
             this.classList.toggle('selected');
-            // modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
-            c.showTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
-
+            modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
+            // c.showTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
         })
     )
 };

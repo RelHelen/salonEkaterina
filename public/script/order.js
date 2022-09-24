@@ -5,7 +5,7 @@
 //         // delete localStorage.dataServ;
 //     }
 // });
-import slideMenu from './index.js';
+
 
 // формирование заказа для пользователя на странице booking
 $(document).ready(function() {
@@ -18,15 +18,7 @@ $('#ctaBooking').click(function() {
         // delete localStorage.dataServ;
     }
 })
-$('#btnDdateTime').click(function() {
-    // if (localStorage.dataServ) {
-    //     //localStorage.removeItem('dataServ');
-    //     // delete localStorage.dataServ;
-    //     servDate = JSON.parse(localStorage.getItem('dataServ'));
-    // }
 
-    // console.log("servDate", servDate);
-})
 
 
 function setOrder() {
