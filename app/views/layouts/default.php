@@ -121,7 +121,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul id="nav">
-                                    <li><a href="#" onclick="scrollPage('wrapperAbout')">О Нас</a></li>
+                                    <li><a href="<?= PATH ?>/about" onclick="scrollPage('wrapperAbout')">О Нас</a></li>
                                     <!--
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
@@ -143,18 +143,18 @@
                                         </ul>
                                     </li>
 -->
-                                    <li><a href="serv" onclick="scrollPage('wrapperTours')">Услуги</a></li>
-                                    <li><a href="price" onclick="scrollPage('wrapperPrice')">Прайс</a></li>
-                                    <li><a href="./person" onclick="scrollPage('wrapperPers')">Мастера</a></li>
+                                    <li><a href="<?= PATH ?>/serv" onclick="scrollPage('wrapperTours')">Услуги</a></li>
+                                    <li><a href="<?= PATH ?>/price" onclick="scrollPage('wrapperPrice')">Прайс</a></li>
+                                    <li><a href="<?= PATH ?>/person" onclick="scrollPage('wrapperPers')">Мастера</a></li>
                                     <!-- class="active" -->
-                                    <li><a href="" onclick="scrollPage('wrapperContact')">Контакты</a></li>
+                                    <li><a href="<?= PATH ?>/contact" onclick="scrollPage('wrapperContact')">Контакты</a></li>
 
                                 </ul>
 
 
                                 <!-- Book Icon -->
                                 <div class="book-now-btn ml-5 mt-4 mt-lg-0 ml-md-4">
-                                    <a href="booking" id="ctaBooking" class="btn akame-btn active">Записаться</a>
+                                    <a href="<?= PATH ?>/bronorder" id="ctaBooking" class="btn akame-btn active">Записаться</a>
                                 </div>
                             </div>
                             <!-- Nav End -->

@@ -24,40 +24,83 @@ $('#ctaBooking').click(function() {
 function setOrder() {
     if (localStorage.dataServ) {
         serv2 = JSON.parse(localStorage.getItem('dataServ'));
+        console.log("serv2", serv2);
+        // let keyServ2 = Object.keys(serv2[0]);
+
     } else {
         serv2 = [];
     }
-    console.log("serv2", serv2);
+
     let sum2 = 0;
-    serv2.forEach(function(itemOrd, iOrd) {
-        $('#order-det').append(
-            $('<li>', {
-                text: itemOrd['title'],
-                id: 't' + itemOrd['value'],
-                class: 'prices-order-item',
-            }).append(
-                $('<span>', {
-                    text: itemOrd['price'] + `₽
+    if (serv2[0] && serv2[0].hasOwnProperty('year')) {
+        //console.log("serv2", serv2[0].hasOwnProperty('year'), serv2.length, 'serv2[0]=', Object.keys(serv2[0]), "serv2=", serv2);
+
+        serv2[1].forEach(function(itemOrd, iOrd) {
+            $('#order-det').append(
+                $('<li>', {
+                    text: itemOrd['title'],
+                    id: 't' + itemOrd['value'],
+                    class: 'prices-order-item',
+                }).append(
+                    $('<span>', {
+                        text: itemOrd['price'] + `₽
+                        `,
+                        class: 'prices-order-det',
+                    })
+                )
+            );
+            sum2 += Number(itemOrd['price']);
+            console.log(`itemOrd[$ { iOrd }] = `, itemOrd, `sum2 = ${sum2}`);
+            $('#order-total').text(sum2 + ' ₽');
+
+            // при возврате на шаг1 все inpute выбираются
+            $('input.booking').each(function(i, item) {
+                // console.log($(this).data('id'));
+                if ($(this).data('id') == itemOrd['value']) {
+                    $(this).prop('checked', true);
+                    //console.log($(this).data('id'))
+                }
+            });
+        });
+        serv2[0]
+        let dateTime = document.querySelector('#date-time');
+        //{ 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
+        dateTime.innerHTML = `<i style="float: right;">${serv2[0].date} ${serv2[0].mouth}   ${serv2[0].time}ч</i>`;
+
+
+    } else {
+        serv2.forEach(function(itemOrd, iOrd) {
+            $('#order-det').append(
+                $('<li>', {
+                    text: itemOrd['title'],
+                    id: 't' + itemOrd['value'],
+                    class: 'prices-order-item',
+                }).append(
+                    $('<span>', {
+                        text: itemOrd['price'] + `₽
                 `,
-                    class: 'prices-order-det',
-                })
-            )
-        );
-        sum2 += Number(itemOrd['price']);
-        console.log(`
+                        class: 'prices-order-det',
+                    })
+                )
+            );
+            sum2 += Number(itemOrd['price']);
+            console.log(`
         itemOrd[$ { iOrd }] = `, itemOrd, `
         sum2 = ${sum2}`);
-        $('#order-total').text(sum2 + ' ₽');
+            $('#order-total').text(sum2 + ' ₽');
 
-        // при возврате на шаг1 все inpute выбираются
-        $('input.booking').each(function(i, item) {
-            // console.log($(this).data('id'));
-            if ($(this).data('id') == itemOrd['value']) {
-                $(this).prop('checked', true);
-                //console.log($(this).data('id'))
-            }
-        });
-    });
+            // при возврате на шаг1 все inpute выбираются
+            $('input.booking').each(function(i, item) {
+                // console.log($(this).data('id'));
+                if ($(this).data('id') == itemOrd['value']) {
+                    $(this).prop('checked', true);
+                    //console.log($(this).data('id'))
+                }
+            });
+        })
+
+    }
+
 }
 
 $('#order-total').text('0 ₽');
@@ -124,19 +167,13 @@ $('.booking').on('change', function() {
         dataServ = serv;
     });
 });
-//при клике кнопки продолжить на странице booking
+//при клике кнопки продолжить на странице bronorder/orderdate  Шаг2 : Выберите дату
 $('#bronorder').click(function(e) {
     e.preventDefault();
-
-    // $('input.booking:checked').each(function(i, item) {
-    //     x.push($(item).attr('value'));
-    //     console.log(x);
-    //     //localStorage.setItem('x', JSON.stringify(x));
-    // });
     console.log(dataServ);
+    console.log('bronorder / orderdate');
     localStorage.setItem('dataServ', JSON.stringify(dataServ));
-    window.location.href = 'bronorder';
-
+    window.location.href = 'bronorder/orderdate';
 });
 //при клике кнопки отмена на странице booking
 $('#reset_bronorder').click(function(e) {
@@ -148,13 +185,3 @@ $('#reset_bronorder').click(function(e) {
     setOrder();
     window.location.href = 'booking';
 });
-// $('.data-calendar').click(function(e) {
-//     e.preventDefault();
-//     console.log($(this));
-//     console.log('ff')
-// })
-// $('.time-calendar').click(function(e) {
-//     e.preventDefault();
-//     console.log($(this));
-//     console.log('tttt')
-// }) let timeCalendar = document.querySelectorAll('.time-calendar');

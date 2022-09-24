@@ -17,16 +17,27 @@ class BronorderController extends AppController
         parent::__construct($route);
         //debug($route);
     }
-    public function indexAction()
+    // выбор услуги на странице пользователя
+    public function indexAction()    {
+        
+        $this->layout = 'default';
+        $model = new Serv;
+        $vidServices =  $model->getVidServices();
+        $grServices = $model->getServicesAll();
+        $services = $model->Services();
+        $this->setData(compact('vidServices', 'grServices', 'services'));
+    }
+    public function orderdateAction()
     {
         $this->layout = 'calendar';
         $model = new Serv;
 
         // $this->setData(compact('vidServices', 'grServices', 'services'));
     }
-    public function viewAction()
+    public function orderviewAction()
     {
-        $this->layout = 'calendar';
+        //$this->layout = 'calendar';
+        $this->layout = 'default';
         $model = new Serv;
     }
 }

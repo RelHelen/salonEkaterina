@@ -5,12 +5,7 @@
             <div class="col-12">
                 <div class="section-heading text-center">
                     <h2>Заказать услугу</h2>
-                    <p><a href="booking">
-                          
-&lsaquo;  Шаг1 : Выбор услуги &nbsp; |
-                            &nbsp; &nbsp;</a>
-                        Шаг2 : Выберите дату
-                    </p>
+                    <p>Шаг1 : Выберите услугу</p>
                 </div>
             </div>
         </div>
@@ -20,71 +15,80 @@
         <form action="" id="order-form">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-7  mb-80 text-center">
-                        <!-- calendar -->
-                        <h4 class="text-center">Выберите дату</h4>
-                        <div class="calendar-wrapper">
-                            <button id="btnPrev" type="button">Предыдущий</button>
-                            <button id="btnNext" type="button">Следующий</button>
-                            <div id="divCal"></div>
-                        </div>
-                        <!-- modal -->
+                    <div class="col-12 col-md-8">
 
-
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <!-- Modal Header -->
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Выберите время </h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <?php if (!empty($grServices)) : ?>
+                            <?php foreach ($grServices as $service) :    ?>
+                                <div class="services-card__single">
+                                    <div class="services-card__h2">
+                                        <h2> <?= $service['VID_U'] ?></h2>
                                     </div>
+                                    <?php if (!empty($service['GRUP'])) :  $k = 1; ?>
+                                        <?php foreach ($service['GRUP'] as $grup) : ?>
+                                            <div class="" id="accordion">
+                                                <div class="card">
+                                                    <div class="services-card__h4 card-header ">
+                                                        <a class="card-link " data-toggle="collapse" href="#collapseOne<?= $k ?>">
+                                                            <h4>
+                                                                <?php
+                                                                if (!empty($grup['NAME_GR'])) {
+                                                                    echo $grup['NAME_GR'];
+                                                                }; ?>
 
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <div id="modaltime"></div>
-                                        <!-- <table class="time">
-                                            <?php $i = 10;
+                                                            </h4>
+                                                        </a>
+                                                    </div>
+                                                    <div id="collapseOne<?= $k ?>" class=" collapse show" data-parent="#accordion">
+                                                        <div class="row card-body">
+                                                            <?php foreach ($services as $serv) : if ($serv['ID_GR'] == $grup['ID_GR']) :
+                                                            ?><div class=" col-12 col-md-8 services-card__pr">
+                                                                        <p>
+                                                                            <input class="booking" type="checkbox" data-id="<?= $serv['ID'] ?>" data-text="<?= $serv['USLUGA'] ?>" data-price="<?= $serv['CENA'] ?>" value="<?= $serv['ID'] ?>">
+                                                                            <?php
+                                                                            if (!empty($serv['USLUGA'])) {
+                                                                                echo $serv['USLUGA'];
+                                                                            }; ?>
 
-                                            for ($i; $i < 21; $i++) : ?>
-                                                <tr>
-                                                    <td   data-toggle="modal"><a href="#"><?= $i ?>:00 </a></td>
-                                                </tr>
-                                            <?php endfor; ?>
-                                        </table> -->
-
-                                        </script>
-                                        <!-- <input type="time" name="cron" min="00" max="24" step="1"></p> -->
-                                    </div>
-
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button id="btnDdateTime" type="button" class="btn akame-btn " data-dismiss="modal">Выбрать</button>
-                                    </div>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-12 col-md-4">
+                                                                        <?php
+                                                                        if (!empty($serv['CENA'])) {
+                                                                            echo $serv['CENA'];
+                                                                        }; ?>
+                                                                    </div>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php $k++;
+                                        endforeach; ?>
+                                    <?php endif; ?>
 
                                 </div>
-                            </div>
-                        </div>
-                        <!-- /modal -->
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
                     </div>
-                    <div class="col-12 col-md-5  ">
-                        <!-- order -->
-                        <h4>Ваши услуги</h4>
-                        <ul class=" mt-40 mb-40" id="order-det">
+                    <div class="col-12 col-md-4 layaut-fixed ">
+                        <h4>Ваш заказ</h4>
+                        <ul id="order-det">
 
                         </ul>
                         <p class="prices-order-total">
                             <span> Итого:</span>
                             <span id="order-total"></span>
                         </p>
-                         <p class="prices-order-total-2">
-                            <span> Дата и время:</span>
-                            <span id="date-time"></span>
-                        </p>  
-                        <a type="submit" id="bronorder2" href="bronorder/view" class="btn   btn-order" data-animation="fadeInUp" data-delay="200ms">Продолжить</a>
-                    </div>
+                        <a type="reset" id="reset_bronorder" href="<?=PATH;?>/bronorder" class="btn   btn-order" data-animation="fadeInUp" data-delay="200ms">Отменить</a>
 
+                        <a type="submit" id="bronorder" href="<?= PATH ?>/bronorder/orderdate" class="btn   btn-order" data-animation="fadeInUp" data-delay="200ms">Продолжить</a>
+
+                    </div>
                 </div>
+
+
             </div>
         </form>
     </article>

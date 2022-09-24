@@ -179,21 +179,50 @@ Cal.prototype.showTime = function(selMouth, selDate) {
                 el.classList.remove('selected');
             });
             this.classList.toggle('selected');
-            //  this.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
+
         })
     )
 
-    btnDdateTime.onclick = function() {
-        //var chk = new Date();
-        //var chkY = chk.getFullYear();
-        // var chkM = chk.getMonth() + 1;
-        // console.log(chkY, chkM, selDate, selTime);
-        let yearNow = document.querySelector('#yNow').textContent;
-        let dateTime = document.querySelector('#date-time');
-        dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
-        let objDateTime = { 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
-        // console.log(objDateTime);
-    }
+    // btnDdateTime.onclick = function() {
+
+    //     let yearNow = document.querySelector('#yNow').textContent;
+    //     let dateTime = document.querySelector('#date-time');
+    //     dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
+    //     let objDateTime = { 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
+
+    // }
+    const promise = new Promise((resolve, reject) => {
+        btnDdateTime.onclick = function() {
+
+            let yearNow = document.querySelector('#yNow').textContent;
+            let dateTime = document.querySelector('#date-time');
+            dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
+            let objDateTime = { 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
+            // console.log(objDateTime);
+            if (objDateTime) {
+                //console.log(objDateTime);
+                resolve(objDateTime);
+            } else {
+                reject(new Error("что то пошло не так"))
+            }
+        }
+    }).then((data) => {
+        console.log("data", data);
+        // переход на страницу шаг3 - Подвердите заявку
+        bronorder2.onclick = function(e) {
+            e.preventDefault();
+            let dataServ3 = [];
+            if (localStorage.dataServ) {
+                dataServ2 = JSON.parse(localStorage.getItem('dataServ'));
+                dataServ3.push(data, dataServ2);
+                //console.log("dataServ3", dataServ3);
+                localStorage.removeItem('dataServ');
+                localStorage.setItem('dataServ', JSON.stringify(dataServ3));
+                window.location.href = 'orderview';
+            };
+
+        }
+    }, (error) => { console.log(error); });
 }
 
 function modalTime(selMouth, selDate) {
@@ -225,10 +254,7 @@ function modalTime(selMouth, selDate) {
     )
     const promise = new Promise((resolve, reject) => {
         btnDdateTime.onclick = function() {
-            //var chk = new Date();
-            //var chkY = chk.getFullYear();
-            // var chkM = chk.getMonth() + 1;
-            // console.log(chkY, chkM, selDate, selTime);
+
             let yearNow = document.querySelector('#yNow').textContent;
             let dateTime = document.querySelector('#date-time');
             dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
@@ -243,14 +269,14 @@ function modalTime(selMouth, selDate) {
         }
     }).then((data) => {
         console.log("data", data);
-
+        // переход на страницу шаг3 - Подвердите заявку
         bronorder2.onclick = function(e) {
             e.preventDefault();
             let dataServ3 = [];
             if (localStorage.dataServ) {
                 dataServ2 = JSON.parse(localStorage.getItem('dataServ'));
                 dataServ3.push(data, dataServ2);
-                console.log("dataServ3", dataServ3);
+                //console.log("dataServ3", dataServ3);
                 localStorage.removeItem('dataServ');
                 localStorage.setItem('dataServ', JSON.stringify(dataServ3));
                 window.location.href = 'bronorder/view';
@@ -284,8 +310,8 @@ window.onload = function() {
                 el.classList.remove('selected');
             });
             this.classList.toggle('selected');
-            modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
-            // c.showTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
+            //modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
+            c.showTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
         })
     )
 };

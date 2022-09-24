@@ -9526,3 +9526,39 @@ Stack trace:
  ====****=====================
 [2022-09-22 09:31:54] Ошибка: Undefined variable $lists || Файл: C:\xampp\htdocs\salon1606\app\models\Booking.php || Строка: 157 
  ====****=====================
+[2022-09-24 17:19:19] Ошибка: Метод app\controllers\BronorderController::bookingAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:19:25] Ошибка: Метод app\controllers\BronorderController::bronorderAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:26:28] Ошибка: Метод app\controllers\BronorderController::bookingAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:54:37] Ошибка: Метод app\controllers\BronorderController::bronorderAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:54:56] Ошибка: Метод app\controllers\BronorderController::bronorderAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:55:10] Ошибка: Метод app\controllers\BronorderController::bookingAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:57:44] Ошибка: Метод app\controllers\BronorderController::servAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:57:58] Ошибка: Метод app\controllers\BronorderController::bronorderAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 17:59:27] Ошибка: Метод app\controllers\BronorderController::bronorderAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 18:00:32] Ошибка: Метод app\controllers\BronorderController::bookingAction не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 131 
+ ====****=====================
+[2022-09-24 18:04:05] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-09-24 18:05:35] Ошибка: Контроллер app\controllers\AboutController не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 137 
+ ====****=====================
+[2022-09-24 18:05:42] Ошибка: Контроллер app\controllers\PersonController не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 137 
+ ====****=====================
+[2022-09-24 18:05:45] Ошибка: Контроллер app\controllers\ContactController не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 137 
+ ====****=====================
+[2022-09-24 18:08:49] Ошибка: Undefined variable $PATH || Файл: C:\xampp\htdocs\salon1606\app\views\Bronorder\index.php || Строка: 84 
+ ====****=====================
+[2022-09-24 18:17:48] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-09-24 18:21:00] Ошибка: Страница не найдена || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 144 
+ ====****=====================
+[2022-09-24 18:22:15] Ошибка: Контроллер app\controllers\OrderdateController не найден || Файл: C:\xampp\htdocs\salon1606\vendor\fw\core\Router.php || Строка: 137 
+ ====****=====================
