@@ -81,6 +81,7 @@
                             <span> Итого:</span>
                             <span id="order-total"></span>
                         </p>
+                        <a type="reset" id="reset_bronorder" href="" class="btn   btn-order" data-animation="fadeInUp" data-delay="200ms">Отменить</a>
 
                         <a type="submit" id="bronorder" href="bronorder" class="btn   btn-order" data-animation="fadeInUp" data-delay="200ms">Продолжить</a>
 

@@ -26,7 +26,7 @@ class AppController extends Controller
     parent::__construct($route); //сначало выполняем родительский конструктор
     //debug($route);    
     if ($_SESSION) {
-      //  debug($_SESSION, true);
+        // debug($_SESSION, true);
     };
 
     $this->setMeta("Салон красоты Екатерина");

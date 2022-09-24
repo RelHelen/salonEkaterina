@@ -41,7 +41,7 @@ class MainController extends AppadminController
 
 		//все заказы
 		$contracts = $model->getContracts($start, $perpage);
-		 debug($contracts);
+		// debug($contracts);
 
 		$this->setData(compact('contracts', 'count', 'pagination'));
 

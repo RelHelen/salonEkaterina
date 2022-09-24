@@ -1,3 +1,98 @@
+$(document).ready(listOrder);
+
+function listOrder() {
+    console.log('Готов!');
+    // var x = JSON.parse(localStorage.getItem('x'));
+    const arrays = JSON.parse(window.localStorage.getItem('xar'));
+    const arrayt = JSON.parse(window.localStorage.getItem('xart'));
+    const arrayp = JSON.parse(window.localStorage.getItem('xarp'));
+    const arraysum = JSON.parse(window.localStorage.getItem('sum'));
+    var data = [];
+    console.log(arrayt);
+    if (null !== arrays) {
+        for (i = 0; i < arrays.length; i++) {
+            $('#order-det-2').append(
+                $('<li>', {
+                    text: arrayt[i],
+                    id: 't' + arrays[i],
+                    class: 'prices-order-item',
+                }).append(
+                    $('<span>', {
+                        text: arrayp[i] + 'р.',
+                        class: 'prices-order-det',
+                    })
+                )
+            );
+        }
+        $('#order-total-2').text(arraysum + 'руб');
+        arrays.forEach((arrayi) => {
+            console.log(arrayi);
+        });
+    }
+    // localStorage.clear();
+    // window.localStorage.removeItem('xar');
+    // window.localStorage.removeItem('xart');
+    // window.localStorage.removeItem('xarp');
+    // window.localStorage.removeItem('sum');
+};
+
+$('.booking').on('change', function() {
+
+        var vidNomer = $(this).val(),
+            titleNomer = $(this).data('text');
+        priceNomer = $(this).data('price');
+        $data = []
+        var prices;
+        var i = 1;
+        var sum = 0;
+        var xar = [];
+        var xart = [];
+        var xarp = [];
+        $('.booking:checked').each(function(i, item) {
+            sum += $(this).data('price');
+            xart.push($(item).attr('data-text'));
+            xarp.push($(item).attr('data-price'));
+            xar.push($(item).attr('value'));
+            localStorage.setItem('xar', JSON.stringify(xar));
+            localStorage.setItem('xart', JSON.stringify(xart));
+            localStorage.setItem('xarp', JSON.stringify(xarp));
+            localStorage.setItem('sum', JSON.stringify(sum));
+            listOrder();
+        });
+
+        // $('#order-total').text(sum);
+        // if ($('.booking').is(':checked')) {
+        //     $('#order-det').append(
+        //         $('<li>', {
+        //             text: titleNomer,
+        //             id: 't' + vidNomer,
+        //             class: 'prices-order-item',
+        //         }).append(
+        //             $('<span>', {
+        //                 text: priceNomer + 'р.',
+        //                 class: 'prices-order-det',
+        //             })
+        //         )
+        //     );
+    }
+
+    //console.log(vidNomer, titleNomer, sum);
+    //}
+);
+
+$('#bronorder').click(function(e) {
+    //e.preventDefault();
+    var x = [];
+    $('input.booking:checked').each(function(i, item) {
+        // x.push($(item).attr('value'));
+        // localStorage.setItem('x', JSON.stringify(x));
+    });
+
+    //$('span').html(x);
+    // console.log(x);
+});
+
+
 // Сокращенный вариант
 
 //выбор в списке услуг на странице booking/index

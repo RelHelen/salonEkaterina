@@ -5,8 +5,9 @@
             <div class="col-12">
                 <div class="section-heading text-center">
                     <h2>Заказать услугу</h2>
-                    <p><a href="">
-                            Шаг1 : Выбор услуги &nbsp; |
+                    <p><a href="booking">
+                          
+&lsaquo;  Шаг1 : Выбор услуги &nbsp; |
                             &nbsp; &nbsp;</a>
                         Шаг2 : Выберите дату
                     </p>
@@ -42,15 +43,15 @@
                                     <!-- Modal body -->
                                     <div class="modal-body">
                                         <div id="modaltime"></div>
-                                        <table class="time">
+                                        <!-- <table class="time">
                                             <?php $i = 10;
 
                                             for ($i; $i < 21; $i++) : ?>
                                                 <tr>
-                                                    <td class="" data-toggle="modal"><a href="#"><?= $i ?>:00 </a></td>
+                                                    <td   data-toggle="modal"><a href="#"><?= $i ?>:00 </a></td>
                                                 </tr>
                                             <?php endfor; ?>
-                                        </table>
+                                        </table> -->
 
                                         </script>
                                         <!-- <input type="time" name="cron" min="00" max="24" step="1"></p> -->
@@ -58,7 +59,7 @@
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn akame-btn " data-dismiss="modal">Выбрать</button>
+                                        <button id="btnDdateTime" type="button" class="btn akame-btn " data-dismiss="modal">Выбрать</button>
                                     </div>
 
                                 </div>
@@ -69,18 +70,18 @@
                     <div class="col-12 col-md-5  ">
                         <!-- order -->
                         <h4>Ваши услуги</h4>
-                        <ul class=" mt-40" id="order-det-2">
+                        <ul class=" mt-40 mb-40" id="order-det">
 
                         </ul>
-                        <p class="prices-order-total-2">
+                        <p class="prices-order-total">
                             <span> Итого:</span>
-                            <span id="order-total-2"></span>
+                            <span id="order-total"></span>
                         </p>
-                        <!-- <p class="prices-order-total-2">
+                         <p class="prices-order-total-2">
                             <span> Дата и время:</span>
-                            <span id="order-total-2">25.06.2022 17:00</span>
-                        </p> -->
-                        <a type="submit" href="bronorder/view" class="btn   btn-order" data-animation="fadeInUp" data-delay="200ms">Продолжить</a>
+                            <span id="date-time"></span>
+                        </p>  
+                        <a type="submit" id="bronorder2" href="bronorder/view" class="btn   btn-order" data-animation="fadeInUp" data-delay="200ms">Продолжить</a>
                     </div>
 
                 </div>

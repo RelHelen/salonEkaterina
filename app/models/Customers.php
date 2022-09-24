@@ -129,14 +129,14 @@ class Customers extends Model
     }
 
     /**
-     * получение   клиента по id пользователю
+     * получение   клиента по id 
      */
     public  function getCustomer($id)
     {
         $customersParam = [
             'id' => $id
         ];
-        $customers = $this->getAssocArr("SELECT * FROM customers WHERE ID_U=:id LIMIT 1", $customersParam);
+        $customers = $this->getAssocArr("SELECT * FROM users WHERE ID=:id LIMIT 1", $customersParam);
         if ($customers) {
             return $customers;
         }

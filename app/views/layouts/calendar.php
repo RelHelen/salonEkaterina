@@ -222,6 +222,7 @@
     <script src="<?= PATH ?>/assets/js/default-assets/active.js"></script>
     <script src="<?= PATH ?>/script/index.js"></script>
     <script src="<?= PATH ?>/script/main.js"></script>
+    <script src="<?= PATH ?>/script/order.js"></script>
     <?php
     foreach ($scripts as $script) {
         echo $script;

@@ -77,7 +77,7 @@ class Booking extends Model
   }
 
   /**
-   * получение договора по id  
+   * получение договора по id  пользователя
    *  
    */
   public function getSerUser($id)
@@ -86,14 +86,13 @@ class Booking extends Model
     $param = [
       'id' => $id
     ];
-    $contract = $this->findSql("SELECT * FROM order_u WHERE ID_O=:id", $param);
+    $contract = $this->findSql("SELECT * FROM order_u WHERE ID_U=:id", $param);
 
     foreach ($contract  as $kay => $value) {
       $serv[$kay] = $value;
     }
 
     if ($serv) {
-
       return  $serv;
     } else {
       return false;
@@ -137,6 +136,7 @@ class Booking extends Model
       'num' => $num
     ];
     $data = $this->findSql("SELECT * FROM detali_o  WHERE ID_O=:num ", $contractParam);
+     
     $uslugi = [];
     foreach ($data  as $kay => $value) {
       $numer = $value['ID_U'];

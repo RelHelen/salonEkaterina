@@ -5,10 +5,10 @@
             <div class="col-12">
                 <div class="section-heading text-center">
                     <h2>Заказ услуги</h2>
-                    <p><a href="">
-                            Шаг1 : Выбор услуги &nbsp; |
+                    <p><a href="booking">
+                    &lsaquo;  Шаг1 : Выбор услуги &nbsp; |
                             &nbsp; &nbsp;</a>
-                        <a href=""> Шаг2 : Выберите дату &nbsp; |</a>
+                        <a href="bronorder"> Шаг2 : Выберите дату &nbsp; |</a>
                         &nbsp; &nbsp;Шаг3 : Подвердите заявку
                     </p>
                 </div>
@@ -25,19 +25,19 @@
                         <!-- order -->
 
                         <h4 class=" ">Ваши услуги</h4>
-                        <ul class=" mt-40" id="order-det-2">
+                        <ul class=" mt-40" id="order-det">
 
                         </ul>
                         <p class="prices-order-total-2">
                             <span> Стоимость услуг:</span>
-                            <span id="order-total-2"></span>
+                            <span id="order-total"></span>
                         </p>
                     </div>
                     <div class="col-12 col-md-1  "></div>
                     <div class="col-12 col-md-6  mb-80">
                         <h4>Вы записаны на время </h4>
-                        <p class="prices-order-date-2">
-                            25.06.2022 на время 17:00
+                        <span id="date-time"></span>
+                        <p class="prices-order-date-2">   
                         </p>
                         <h4>Заполните ваши данные </h4>
                         <!-- Form -->

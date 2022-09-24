@@ -1,6 +1,4 @@
 <!-- регистрация -->
-
-
 <div class="d-flex align-items-center h-100 mt-40">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -48,7 +46,10 @@
                         </form>
                         <!-- данные сессии показываем только один раз  -->
                         <?php
-                        if (isset($_SESSION['form_data'])) unset($_SESSION['form_data']);
+                        if (isset($_SESSION['form_data'])){
+                            debug($_SESSION['form_data']); 
+                        unset($_SESSION['form_data']);}
+
                         ?>
                     </div>
                 </div>

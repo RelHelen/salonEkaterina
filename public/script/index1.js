@@ -153,33 +153,38 @@ Cal.prototype.showMonth = function(y, m) {
     // Записываем HTML в div
     document.getElementById(this.divId).innerHTML = html;
 };
-//показать время time
-Cal.prototype.showTime = function(selMouth, selDate) {
+//time
+function modalTime(selMouth, selDate) {
     let btnDdateTime = document.getElementById('btnDdateTime');
+
     var html = '<table class="time">';
-    // Записываем время с 10 до 19
+    // Записываем дни
     var i = 10;
     do {
         html += '<tr><td  data-toggle="modal"><a class="time-calendar" href="#" data-text="' + i +
             '">' + i + '</a></td></tr>';
         i++;
-    } while (i <= 19);
+    } while (i <= 21);
 
     // Конец таблицы
     html += '</table>';
+    //console.log(html);
+    // Записываем HTML в div
+    //document.getElementById(myModal).innerHTML = 'html';
     document.getElementById('modaltime').innerHTML = html;
-
 
     let timeCalendar = document.querySelectorAll('.time-calendar');
     let selTime = '';
     timeCalendar.forEach((btnTime) =>
         btnTime.addEventListener('click', function() {
+            // console.log(this.getAttribute('data-text'));
             selTime = this.getAttribute('data-text');
             timeCalendar.forEach(el => {
                 el.classList.remove('selected');
             });
             this.classList.toggle('selected');
             //  this.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
+
         })
     )
 
@@ -192,71 +197,28 @@ Cal.prototype.showTime = function(selMouth, selDate) {
         let dateTime = document.querySelector('#date-time');
         dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
         let objDateTime = { 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
-        // console.log(objDateTime);
+        //console.log(objDateTime);
+
+        // let dataServ3 = [];
+        // if (localStorage.dataServ) {
+        //     dataServ2 = JSON.parse(localStorage.getItem('dataServ'));
+        //     dataServ3.push(objDateTime, dataServ2);
+        // };
+
+        const promise = new Promise((resolve, reject) => {
 
 
-    }
-}
-
-function modalTime(selMouth, selDate) {
-    let btnDdateTime = document.getElementById('btnDdateTime');
-    var html = '<table class="time">';
-    // Записываем дни
-    var i = 10;
-    do {
-        html += '<tr><td  data-toggle="modal"><a class="time-calendar" href="#" data-text="' + i +
-            '">' + i + '</a></td></tr>';
-        i++;
-    } while (i <= 21);
-
-    // Конец таблицы
-    html += '</table>';
-    document.getElementById('modaltime').innerHTML = html;
-
-    let timeCalendar = document.querySelectorAll('.time-calendar');
-    let selTime = '';
-    timeCalendar.forEach((btnTime) =>
-        btnTime.addEventListener('click', function() {
-            selTime = this.getAttribute('data-text');
-            timeCalendar.forEach(el => {
-                el.classList.remove('selected');
-            });
-            this.classList.toggle('selected');
-            //  this.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
-        })
-    )
-    const promise = new Promise((resolve, reject) => {
-        btnDdateTime.onclick = function() {
-            //var chk = new Date();
-            //var chkY = chk.getFullYear();
-            // var chkM = chk.getMonth() + 1;
-            // console.log(chkY, chkM, selDate, selTime);
-            let yearNow = document.querySelector('#yNow').textContent;
-            let dateTime = document.querySelector('#date-time');
-            dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
-            let objDateTime = { 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
-            // console.log(objDateTime);
             if (objDateTime) {
                 //console.log(objDateTime);
                 resolve(objDateTime);
             } else {
-                reject(new Error("что то пошло не так"))
+                reject(new Error("то то пошло не так"))
             }
-        }
-    }).then((data) => {
-        console.log("data", data);
 
-        bronorder2.onclick = function(e) {
-            e.preventDefault();
-            let dataServ3 = [];
-            if (localStorage.dataServ) {
-                dataServ2 = JSON.parse(localStorage.getItem('dataServ'));
-                dataServ3.push(data, dataServ2);
-                console.log("dataServ3", dataServ3);
-            };
+        })
+        promise.then((data) => { console.log(data); }, (error) => { console.log(error); })
+    }
 
-        }
-    }, (error) => { console.log(error); });
 
 }
 
@@ -283,14 +245,18 @@ window.onload = function() {
                 el.classList.remove('selected');
             });
             this.classList.toggle('selected');
-            // modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
-            c.showTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
+            modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
+            // this.querySelectorAll('*').forEach(el => el.classList.toggle('hidden'));
+
 
         })
     )
+
+
+
 };
 
 // Получить элемент по id
 function getId(id) {
     return document.getElementById(id);
-} //эту функцию можно испльзоваь в любом другом файле
+}

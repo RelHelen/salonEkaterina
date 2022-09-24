@@ -26,7 +26,7 @@ class UserController extends AppController
         // $this->setMeta('Регистрация');
         $this->setTitle('');
         //unset($_SESSION);
-        // debug($_SESSION);
+         // debug($_SESSION);
 
         if (!empty($_POST)) {
             //  debug($_POST);
@@ -55,6 +55,7 @@ class UserController extends AppController
             );
             //если данные валидны вставляем строку в таблицу
             if ($user->insertSingleRow('users') > 0) {
+                
                 $_SESSION['success'] = "Вы успешно зарегестрировались";
             } else {
                 $_SESSION['error'] = "Ошибка! Попробуйте позже";
@@ -102,39 +103,48 @@ class UserController extends AppController
         $this->destSession();
         redirect(PATH . '/user/login');
     }
-    //просмотр заказов по
-    public function BookingAction()
-    {
-
-
+    //просмотр заказов для пользователя
+    public function BookingAction(){  
+        if($_SESSION['user']['role']) {
+        debug($_SESSION['user']);
+        redirect(PATH . '/');  //сделать переход на страницу    
+       
+        } 
+           
         $model = new Customers;
         $modelBook = new Booking;
         $user = $_SESSION['user'];
+        $detals = array();
+        // debug($user);
+           
         $customer = $model->getCustomer($user['ID']);
-        $contracts = $modelBook->getSerUser($user['ID']);
-
-        $detals = $modelBook->getDetal($contracts[0]['ID_O']);
         // debug($customer);
-        // debug($_SESSION);
+        $contracts = $modelBook->getSerUser($user['ID']);
+        //debug($contracts[0]['ID_O']);
         //debug($contracts);
+        foreach ($contracts as $kay => $value) {
+            //debug($kay);
+            array_push($detals,$modelBook->getDetal($contracts[$kay]['ID_O']));
+           
+        }
+        //debug($detals);       
+         
         $this->setTitle('Ваши заказы');
         $this->setData(compact('contracts', 'detals', 'customer'));
     }
     //просмотр заказов по 
     public function PersonalAction()
     {
-
-
         $model = new Customers;
         $modelBook = new Booking;
         $user = $_SESSION['user'];
+        //debug($user);
         $customer = $model->getCustomer($user['ID']);
-
 
 
         //debug($customer);
         // debug($_SESSION);
-        // debug($user);
+        
         $this->setTitle('Ваши заказы');
         $this->setData(compact('customer', 'user'));
     }

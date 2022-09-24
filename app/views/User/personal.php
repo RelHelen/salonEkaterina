@@ -25,7 +25,7 @@
                                         </tr>
                                         <tr>
                                             <th>Почта</th>
-                                            <td><?= $customer['mail']; ?> </td>
+                                            <td><?= $customer['MAIL']; ?> </td>
                                             <td width="30px"><a href=""><i class="fa fa-pencil text-success mr-3"></i></a>
                                             </td>
                                         </tr>

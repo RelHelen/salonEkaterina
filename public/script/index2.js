@@ -153,51 +153,7 @@ Cal.prototype.showMonth = function(y, m) {
     // Записываем HTML в div
     document.getElementById(this.divId).innerHTML = html;
 };
-//показать время time
-Cal.prototype.showTime = function(selMouth, selDate) {
-    let btnDdateTime = document.getElementById('btnDdateTime');
-    var html = '<table class="time">';
-    // Записываем время с 10 до 19
-    var i = 10;
-    do {
-        html += '<tr><td  data-toggle="modal"><a class="time-calendar" href="#" data-text="' + i +
-            '">' + i + '</a></td></tr>';
-        i++;
-    } while (i <= 19);
-
-    // Конец таблицы
-    html += '</table>';
-    document.getElementById('modaltime').innerHTML = html;
-
-
-    let timeCalendar = document.querySelectorAll('.time-calendar');
-    let selTime = '';
-    timeCalendar.forEach((btnTime) =>
-        btnTime.addEventListener('click', function() {
-            selTime = this.getAttribute('data-text');
-            timeCalendar.forEach(el => {
-                el.classList.remove('selected');
-            });
-            this.classList.toggle('selected');
-            //  this.querySelectorAll('*').forEach(el => el.classList.remove('selected'));
-        })
-    )
-
-    btnDdateTime.onclick = function() {
-        //var chk = new Date();
-        //var chkY = chk.getFullYear();
-        // var chkM = chk.getMonth() + 1;
-        // console.log(chkY, chkM, selDate, selTime);
-        let yearNow = document.querySelector('#yNow').textContent;
-        let dateTime = document.querySelector('#date-time');
-        dateTime.innerHTML = `<i style="float: right;">${selDate} ${selMouth}   ${selTime}ч</i>`;
-        let objDateTime = { 'year': yearNow, 'date': selDate, 'mouth': selMouth, 'time': selTime };
-        // console.log(objDateTime);
-
-
-    }
-}
-
+//time
 function modalTime(selMouth, selDate) {
     let btnDdateTime = document.getElementById('btnDdateTime');
     var html = '<table class="time">';
@@ -283,8 +239,8 @@ window.onload = function() {
                 el.classList.remove('selected');
             });
             this.classList.toggle('selected');
-            // modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
-            c.showTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
+            modalTime(this.getAttribute('data-mouth'), this.getAttribute('data-text'));
+            // this.querySelectorAll('*').forEach(el => el.classList.toggle('hidden'));
 
         })
     )

@@ -154,7 +154,7 @@
 
                                 <!-- Book Icon -->
                                 <div class="book-now-btn ml-5 mt-4 mt-lg-0 ml-md-4">
-                                    <a href="booking" class="btn akame-btn active">Записаться</a>
+                                    <a href="booking" id="ctaBooking" class="btn akame-btn active">Записаться</a>
                                 </div>
                             </div>
                             <!-- Nav End -->
@@ -283,6 +283,7 @@
     <script src="<?= PATH ?>/assets/js/default-assets/active.js"></script>
 
     <script src="<?= PATH ?>/script/main.js"></script>
+    <script src="<?= PATH ?>/script/order.js"></script>
     <?php
     foreach ($scripts as $script) {
         echo $script;

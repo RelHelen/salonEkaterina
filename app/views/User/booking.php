@@ -6,7 +6,9 @@
     <p></p>
     <p></p>
     <?php if (!empty($contracts)) :
-        foreach ($contracts as $contract) : ?>
+        foreach ($contracts as $contract) :
+            //debug($contract);
+         ?>
             <section class="card-">
                 <div class="card-header">
                     <h3>Заказ №
@@ -85,29 +87,23 @@
                                                 <tbody>
                                                     <?php
                                                     if (!empty($detals)) :
-
                                                         $i = 0;
-
-                                                        foreach ($detals as $list) :
+                                                        foreach ($detals  as $detal ) :
+                                                            //debug($detal);
+                                                            foreach ($detal  as $list ) :
+                                                                if( $contract['ID_O'] == $list['ID_O']):
                                                             $i++ ?>
                                                             <tr>
                                                                 <td><?= $i ?></td>
-
-
                                                                 <td><?= $list['USLUGA']; ?></td>
                                                                 <td><?= $list['PRICE']; ?></td>
-
-
                                                                 <td>
-
-
-                                                                    Краснова Елена
-
-
 
                                                                 </td>
 
                                                             </tr>
+                                                            <?php endif; ?>
+                                                            <?php endforeach; ?>
                                                         <?php endforeach; ?>
                                                     <?php endif; ?>
                                                 </tbody>

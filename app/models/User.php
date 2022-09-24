@@ -37,7 +37,7 @@ class User extends Model
 
 
     /**
-     *получение id пользователя из users
+     *получение id пользователя из users по логину
      */
     public  function getIdUserByLogin($login)
     {
@@ -47,12 +47,7 @@ class User extends Model
         $user  = $this->getAssocArr("SELECT id FROM users WHERE login=:login LIMIT 1", $usersParam);
         return $user['id'];
     }
-    /**
-     * получение клиента по пользователю
-     */
-    public  function getIdCustomer($id)
-    {
-    }
+
     /**
      * проверка уникальности логина-почты
      */
@@ -100,6 +95,7 @@ class User extends Model
         $sql = "INSERT INTO $table ( 
                  login,
                  password,
+                 fio,
                  mail,                
                  phone,
                  role,
@@ -108,6 +104,7 @@ class User extends Model
             VALUES (
                  :login,
                  :password,
+                 :fio,
                  :mail,                
                  :phone,
                  :role,
@@ -118,6 +115,7 @@ class User extends Model
             'login' => $this->attributes['login'],
             'password' => $this->attributes['password'],
             'mail' => $this->attributes['mail'],
+            'fio' => $this->attributes['fio'],            
             'phone' => $this->attributes['phone'],
             'role' => $this->attributes['role'],
             'data_reg' => $this->attributes['data_reg']
@@ -129,13 +127,13 @@ class User extends Model
         // }
         // die;
         $res = $this->pdo->execute($sql, $params);
+        return $res;
+        //$id_u = $this->pdo->lastInsertId(); //номер последнего индекса
 
-        $id_u = $this->pdo->lastInsertId(); //номер последнего индекса
 
-
-        if ($this->insertSingleRowCust('customers', $id_u) > 0) {
-            return $res;
-        }
+        // if ($this->insertSingleRowCust('customers', $id_u) > 0) {
+        //     return $res;
+        // }
     }
     /**
      * Вставка строки в таблицу customer
@@ -189,7 +187,6 @@ class User extends Model
             if ($isAdmin) {
                 //авторизация админа для админки
                 if (isset($_SESSION['user'])) {
-
                     unset($_SESSION['user']);
                 };
                 $params = [
